@@ -172,8 +172,6 @@
 			children = (
 				4620D5D32123C18B009D11F8 /* recourse */,
 				4620D5D42123C1A9009D11F8 /* func */,
-				4620D5A32123C117009D11F8 /* ViewController.h */,
-				4620D5A42123C117009D11F8 /* ViewController.m */,
 			);
 			path = HeroinNetWorking;
 			sourceTree = "<group>";
@@ -225,6 +223,8 @@
 		4620D5D32123C18B009D11F8 /* recourse */ = {
 			isa = PBXGroup;
 			children = (
+				4620D5A32123C117009D11F8 /* ViewController.h */,
+				4620D5A42123C117009D11F8 /* ViewController.m */,
 				4620D5A02123C117009D11F8 /* AppDelegate.h */,
 				4620D5A12123C117009D11F8 /* AppDelegate.m */,
 				4620D5A62123C117009D11F8 /* Main.storyboard */,
