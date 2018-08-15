@@ -17,97 +17,97 @@ NS_ENUM(NSInteger) {
     HeroinRequestValidationErrorInvalidJSONFormat = -9,
     };
     
-    ///  HTTP Request method.
-    typedef NS_ENUM(NSInteger, HeroinRequestMethod) {
-        HeroinRequestMethodGET = 0,
-        HeroinRequestMethodPOST,
-        HeroinRequestMethodHEAD,
-        HeroinRequestMethodPUT,
-        HeroinRequestMethodDELETE,
-        HeroinRequestMethodPATCH,
-    };
-    
-    ///  Request serializer type.
-    typedef NS_ENUM(NSInteger, HeroinRequestSerializerType) {
-        HeroinRequestSerializerTypeHTTP = 0,
-        HeroinRequestSerializerTypeJSON,
-    };
-    
-    ///  Response serializer type, which determines response serialization process and
-    ///  the type of `responseObject`.
-    typedef NS_ENUM(NSInteger, HeroinResponseSerializerType) {
-        /// NSData type
-        HeroinResponseSerializerTypeHTTP,
-        /// JSON object type
-        HeroinResponseSerializerTypeJSON,
-        /// NSXMLParser type
-        HeroinResponseSerializerTypeXMLParser,
-    };
-    
-    ///  Request priority
-    typedef NS_ENUM(NSInteger, HeroinRequestPriority) {
-        HeroinRequestPriorityLow = -4L,
-        HeroinRequestPriorityDefault = 0,
-        HeroinRequestPriorityHigh = 4,
-    };
-    
-    @protocol AFMultipartFormData;
-    
-    typedef void (^AFConstructingBlock)(id<AFMultipartFormData> formData);
-    typedef void (^AFURLSessionTaskProgressBlock)(NSProgress *);
-    
-    @class HeroinBaseRequest;
-    
-    typedef void(^HeroinRequestCompletionBlock)(__kindof HeroinBaseRequest *request);
-    
-    ///  The HeroinRequestDelegate protocol defines several optional methods you can use
-    ///  to receive network-related messages. All the delegate methods will be called
-    ///  on the main queue.
-    @protocol HeroinRequestDelegate <NSObject>
-    
-    @optional
-    ///  Tell the delegate that the request has finished successfully.
-    ///
-    ///  @param request The corresponding request.
-    - (void)requestFinished:(__kindof HeroinBaseRequest *)request;
-    
-    ///  Tell the delegate that the request has failed.
-    ///
-    ///  @param request The corresponding request.
-    - (void)requestFailed:(__kindof HeroinBaseRequest *)request;
-    
-    @end
-    
-    ///  The HeroinRequestAccessory protocol defines several optional methods that can be
-    ///  used to track the status of a request. Objects that conforms this protocol
-    ///  ("accessories") can perform additional configurations accordingly. All the
-    ///  accessory methods will be called on the main queue.
-    @protocol HeroinRequestAccessory <NSObject>
-    
-    @optional
-    
-    ///  Inform the accessory that the request is about to start.
-    ///
-    ///  @param request The corresponding request.
-    - (void)requestWillStart:(id)request;
-    
-    ///  Inform the accessory that the request is about to stop. This method is called
-    ///  before executing `requestFinished` and `successCompletionBlock`.
-    ///
-    ///  @param request The corresponding request.
-    - (void)requestWillStop:(id)request;
-    
-    ///  Inform the accessory that the request has already stoped. This method is called
-    ///  after executing `requestFinished` and `successCompletionBlock`.
-    ///
-    ///  @param request The corresponding request.
-    - (void)requestDidStop:(id)request;
-    
-    @end
-    
-    ///  HeroinBaseRequest is the abstract class of network request. It provides many options
-    ///  for constructing request. It's the base class of `HeroinRequest`.
-    @interface HeroinBaseRequest : NSObject
+///  HTTP Request method.
+typedef NS_ENUM(NSInteger, HeroinRequestMethod) {
+    HeroinRequestMethodGET = 0,
+    HeroinRequestMethodPOST,
+    HeroinRequestMethodHEAD,
+    HeroinRequestMethodPUT,
+    HeroinRequestMethodDELETE,
+    HeroinRequestMethodPATCH,
+};
+
+///  Request serializer type.
+typedef NS_ENUM(NSInteger, HeroinRequestSerializerType) {
+    HeroinRequestSerializerTypeHTTP = 0,
+    HeroinRequestSerializerTypeJSON,
+};
+
+///  Response serializer type, which determines response serialization process and
+///  the type of `responseObject`.
+typedef NS_ENUM(NSInteger, HeroinResponseSerializerType) {
+    /// NSData type
+    HeroinResponseSerializerTypeHTTP,
+    /// JSON object type
+    HeroinResponseSerializerTypeJSON,
+    /// NSXMLParser type
+    HeroinResponseSerializerTypeXMLParser,
+};
+
+///  Request priority
+typedef NS_ENUM(NSInteger, HeroinRequestPriority) {
+    HeroinRequestPriorityLow = -4L,
+    HeroinRequestPriorityDefault = 0,
+    HeroinRequestPriorityHigh = 4,
+};
+
+@protocol AFMultipartFormData;
+
+typedef void (^AFConstructingBlock)(id<AFMultipartFormData> formData);
+typedef void (^AFURLSessionTaskProgressBlock)(NSProgress *);
+
+@class HeroinBaseRequest;
+
+typedef void(^HeroinRequestCompletionBlock)(__kindof HeroinBaseRequest *request);
+
+///  The HeroinRequestDelegate protocol defines several optional methods you can use
+///  to receive network-related messages. All the delegate methods will be called
+///  on the main queue.
+@protocol HeroinRequestDelegate <NSObject>
+
+@optional
+///  Tell the delegate that the request has finished successfully.
+///
+///  @param request The corresponding request.
+- (void)requestFinished:(__kindof HeroinBaseRequest *)request;
+
+///  Tell the delegate that the request has failed.
+///
+///  @param request The corresponding request.
+- (void)requestFailed:(__kindof HeroinBaseRequest *)request;
+
+@end
+
+///  The HeroinRequestAccessory protocol defines several optional methods that can be
+///  used to track the status of a request. Objects that conforms this protocol
+///  ("accessories") can perform additional configurations accordingly. All the
+///  accessory methods will be called on the main queue.
+@protocol HeroinRequestAccessory <NSObject>
+
+@optional
+
+///  Inform the accessory that the request is about to start.
+///
+///  @param request The corresponding request.
+- (void)requestWillStart:(id)request;
+
+///  Inform the accessory that the request is about to stop. This method is called
+///  before executing `requestFinished` and `successCompletionBlock`.
+///
+///  @param request The corresponding request.
+- (void)requestWillStop:(id)request;
+
+///  Inform the accessory that the request has already stoped. This method is called
+///  after executing `requestFinished` and `successCompletionBlock`.
+///
+///  @param request The corresponding request.
+- (void)requestDidStop:(id)request;
+
+@end
+
+///  HeroinBaseRequest is the abstract class of network request. It provides many options
+///  for constructing request. It's the base class of `HeroinRequest`.
+@interface HeroinBaseRequest : NSObject
 
 #pragma mark - Request and Response Information
 ///=============================================================================
