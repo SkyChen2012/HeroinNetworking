@@ -9,12 +9,6 @@
 #import "HeroinNetworkConfig.h"
 #import "HeroinBaseRequest.h"
 
-#if __has_include(<AFNetworking/AFNetworking.h>)
-#import <AFNetworking/AFNetworking.h>
-#else
-#import "AFNetworking.h"
-#endif
-
 @implementation HeroinNetworkConfig{
     
     NSMutableArray<id<HeroinUrlFilterProtocol>> *_urlFilters;
